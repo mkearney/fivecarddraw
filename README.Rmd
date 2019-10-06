@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+devtools::load_all(".")
+```
+
+# fivecarddraw
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+For simulating five-card draw poker scenarios
+
+## Installation
+
+You can install the released version of fivecarddraw from Github
+
+``` r
+remotes::install_github("mkearney/fivecarddraw")
+```
+
+## Example
+
+Start a round of five-card draw
+
+```{r example}
+## start a game with five players
+p <- Poker$new(players = 5)
+
+## deal
+p$deal()
+
+## get hand values
+lapply(players(p), get_hand)
+```
+
+## NOTE:
+
+This package was inspired by a question about five-card draw from my father-in-law. It isn't scientific and it's a work in progress.

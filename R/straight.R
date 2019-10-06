@@ -37,7 +37,7 @@ has_open_ended_straight_draw.data.frame <- function(x) {
   if (!has_straight_draw(x)) {
     return(FALSE)
   }
-  x$value <- sort(x$value)[diff(sort(x$value)) == 1]
-  all(x$value > 1) &&
-    all(x$value < 15)
+  x <- sort(x$value)[diff(sort(x$value)) == 1]
+  all(x > 1) &&
+    all(x < 15)
 }
