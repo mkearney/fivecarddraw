@@ -16,3 +16,5 @@ Imports:
     tfse,
     dapr,
     tibble
+URL: https://github.com/mkearney/fivecarddraw
+BugReports: https://github.com/mkearney/fivecarddraw/issues
