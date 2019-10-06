@@ -37,11 +37,20 @@ Start a round of five-card draw
 ## start a game with five players
 p <- Poker$new(players = 5)
 
+## shuffle
+p$shuffle()
+
 ## deal
 p$deal()
 
-## get hand values
-lapply(players(p), get_hand)
+## show cards
+p$peek()
+
+## draw cards
+p$draw()
+
+## show hands
+p$show()
 ```
 
 ## NOTE:

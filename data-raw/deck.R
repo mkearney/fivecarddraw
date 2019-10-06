@@ -1,4 +1,6 @@
-## code to prepare `DECK` dataset goes here
+##----------------------------------------------------------------------------##
+##                                    DECK                                    ##
+##----------------------------------------------------------------------------##
 spades <- c(
   "\U1F0A1",
   "\U1F0A2",
@@ -74,4 +76,32 @@ deck <- list(
   clubs = clubs
 )
 
-usethis::use_data(deck, overwrite = TRUE, internal = TRUE)
+##----------------------------------------------------------------------------##
+##                                HAND_RANKS                                  ##
+##----------------------------------------------------------------------------##
+
+a2 <- c("A", "K", "Q", "J", 10:2)
+a5 <- a2[1:10]
+tbl <- tibble::tibble
+
+str_flush  <- tbl(hand = "str_flush",  high = a5)
+five_kind  <- tbl(hand = "five_kind",  high = a2)
+full_house <- tbl(hand = "full_house", high = a2)
+flush      <- tbl(hand = "flush",      high = a2)
+str        <- tbl(hand = "str",        high = a5)
+trips      <- tbl(hand = "trips",      high = a2)
+two_pair   <- tbl(hand = "two_pair",   high = a2[-length(a2)])
+pair       <- tbl(hand = "pair",       high = a2)
+
+hand_ranks <- rbind(
+  str_flush,
+  five_kind,
+  full_house,
+  flush,
+  str,
+  trips,
+  two_pair,
+  pair
+)
+
+usethis::use_data(deck, hand_ranks, overwrite = TRUE, internal = TRUE)

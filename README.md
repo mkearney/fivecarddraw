@@ -25,44 +25,49 @@ Start a round of five-card draw
 ## start a game with five players
 p <- Poker$new(players = 5)
 
+## shuffle
+p$shuffle()
+#> [90m  <<shuffle>> <<shuffle>>
+#> [39m[90m  <<shuffle>> <<shuffle>>
+#> [39m
+
 ## deal
 p$deal()
-#> $p1
-#>   hearts10 diamonds12 diamonds13 diamonds14     clubs3 
-#>        "🂺"        "🃌"        "🃍"        "🃎"        "🃓" 
-#> 
-#> $p2
-#>  spades12   hearts1 diamonds5    clubs1    clubs8 
-#>       "🂬"       "🂱"       "🃅"       "🃑"       "🃘" 
-#> 
-#> $p3
-#>    spades2  diamonds1  diamonds9 diamonds10     clubs6 
-#>        "🂢"        "🃁"        "🃉"        "🃊"        "🃖" 
-#> 
-#> $p4
-#> spades4 spades6 hearts7 hearts8  clubs4 
-#>     "🂤"     "🂦"     "🂷"     "🂸"     "🃔" 
-#> 
-#> $p5
-#>   spades7   spades9 diamonds7   clubs10   clubs11 
-#>       "🂧"       "🂩"       "🃇"       "🃚"       "🃛"
+#>  🃜 🃄 🃗 🃑 🃚
+#>  🃙 🃓 🂸 🃎 🃄
+#>  🃑 🃞 🃁 🂸 🂹
+#>  🂢 🃗 🃃 🂾 🂩
+#>  🃖 🂵 🃓 🃇 🃒
 
-## get hand values
-lapply(players(p), get_hand)
+## show cards
+p$peek()
+#>      p1      p2      p3      p4      p5 
+#> "🂶🃃🃎🃛🂾" "🂪🂡🂣🃓🂲" "🂹🃞🃙🂫🂻" "🃁🂮🂨🂳🃉" "🃔🂽🂼🂱🃕"
+
+## draw cards
+p$draw()
+#>  🂠🂠     🃌 🃘
+#>  🂠      🂲
+#>  🂠🂠🂠    🂨 🂹 🃓
+#>  🂠🂠🂠    🃇 🃌 🃜
+#>  🂠🂠🂠    🃝 🃝 🃂
+
+## show hands
+p$show()
 #> $p5
-#> [1] "7s"
+#> [1] "4s and 12s"
 #> 
 #> $p4
-#> [1] "4s"
+#> [1] "9s and 15s"
 #> 
 #> $p3
 #> [1] "flush_double_draw"
 #> 
 #> $p2
-#> [1] "15s"
+#> [1] "3s"
 #> 
 #> $p1
-#> [1] "flush_double_draw"
+#> [1] "6s and 14s"
 ```
 
 ## NOTE:
